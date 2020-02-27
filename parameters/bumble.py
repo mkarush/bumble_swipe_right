@@ -12,7 +12,7 @@ add_mod =Blueprint('bumble',__name__,template_folder='templates')
 
 class Check():
     def __init__(self,username,password):
-        self.driver = webdriver.Chrome('/Users/karushmahajan/Desktop/chromedriver')
+        self.driver = webdriver.Chrome(<local chrome driver location>)
         self.username=username
         self.password=password
 
