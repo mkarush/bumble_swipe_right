@@ -9,4 +9,4 @@ This app will swipe right for user until reach end of likes for day:
 <p>pip install flask</p>
 
 <h1>USAGE</h1>
-<p>This will start a web development app where user can login using facebook or password. </p>
+<p>This will start a web development app where user can login using facebook or cellphone on bumble. </p>
