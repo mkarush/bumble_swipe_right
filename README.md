@@ -4,10 +4,7 @@ This app will swipe right for user until reach end of likes for day:
 <p>This app utilizes Python3, Selenium, and Chrome.</p><br>
 <p>Python3 can be found here: https://www.python.org/downloads/ </p><br>
 <p>Selenium can be found here: http://www.seleniumhq.org/download/ </p><br>
-<p>A Chrome webdriver will be required with Selenium. This can be found here: https://sites.google.com/chromium.org/driver/downloads</p> <br>
 
-<p>ADD chrome driver location in file parameter/bumble.py -> 
-  self.driver = webdriver.Chrome(local chrome driver location) </p><br>
 <p> pip install --upgrade pip</p>
 <p>pip install -r requirements.txt</p>
 
