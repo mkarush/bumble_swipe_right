@@ -1,7 +1,10 @@
 from flask import Blueprint, render_template,request,render_template,redirect, url_for, flash
 from jinja2 import TemplateNotFound
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException,InvalidSessionIdException,NoSuchWindowException
 import time
 import sys
@@ -12,7 +15,7 @@ add_mod =Blueprint('bumble',__name__,template_folder='templates')
 
 class Check():
     def __init__(self,username,password):
-        self.driver = webdriver.Chrome(<local chrome driver location>)
+        self.driver = webdriver.Chrome()
         self.username=username
         self.password=password
 
@@ -20,14 +23,23 @@ class Check():
     def fb_login(self):
         self.driver.get('https://www.facebook.com/')
         self.driver.implicitly_wait(10)
-        a = self.driver.find_element_by_id('email')
-        a.send_keys(self.username)
-        b = self.driver.find_element_by_id('pass')
-        b.send_keys(self.password)
-        c=self.driver.find_element_by_id('loginbutton')
-        c.click()
+        username_field = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "email"))
+        )
+        password_field = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "pass"))
+        )
+
+        # Enter your Facebook login credentials
+        username_field.send_keys(self.username)
+        password_field.send_keys(self.password)
+
+        # Find the login button and click it
+        login_button = self.driver.find_element(By.NAME, "login")
+        login_button.click()
+
         try:
-            self.driver.find_element_by_id('u_0_c')
+            self.driver.find_element('u_0_c')
         except:
             flash("Invalid facebook username and password")
             self.driver.close()
@@ -46,7 +58,7 @@ class Check():
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
         self.driver.find_element_by_xpath("//*[text()='Use cell phone number']").click()
-        element = self.driver.find_element_by_id("phone")
+        element = self.driver.find_element("phone")
         element.send_keys(self.username)
         self.driver.find_element_by_xpath("//*[text()='Continue']").click()
         try:
