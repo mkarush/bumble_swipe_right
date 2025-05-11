@@ -1,19 +1,93 @@
 {% include 'navbar.html' %}
-<br>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumble Auto Swipe</title>
+</head>
 <body>
-<div class="container-fluid">
-  <h3 style="color: darkkhaki">Automate Swipe Right on Bumble</h3><br>
-  <img src="static/swipe_right.jpeg" width="460" height="345">
-  <form action="bumble" method = POST>
-    <br><label for="Login">Choose How you want to login in Bumble:</label>
-    <select id="login" name="login">
-      <option value="fb">Facebook</option>
-      <option value="numbler">Cellphone</option>
-    </select>
-    <input type="submit" value="Submit" >
-  </form>
-</div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1 class="display-4 mb-4">Automate Your Bumble Experience</h1>
+                <p class="lead mb-4">Let our tool help you find your perfect match by automatically swiping right</p>
+                
+                <div class="card mb-4">
+                    <img src="static/swipe_right.jpeg" class="card-img-top" alt="Swipe Right Illustration" style="max-height: 400px; object-fit: cover;">
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Choose Your Login Method</h3>
+                        <form action="bumble" method="POST" class="needs-validation" novalidate>
+                            <div class="mb-4">
+                                <select class="form-select form-select-lg" id="login" name="login">
+                                    <option value="fb">Login with Facebook</option>
+                                    <option value="numbler">Login with Phone Number</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg">Continue</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background-color: #FF5864;
+            border-color: #FF5864;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #FF4757;
+            border-color: #FF4757;
+        }
+        
+        .form-select {
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .form-select:focus {
+            border-color: #FF5864;
+            box-shadow: 0 0 0 0.25rem rgba(255, 88, 100, 0.25);
+        }
+    </style>
+
+    <script>
+        // Form validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
 </body>
 </html>
 

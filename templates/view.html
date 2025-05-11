@@ -1,13 +1,64 @@
 {% include 'navbar.html' %}
-<br>
+
 <!DOCTYPE html>
-<html lang = "en">
-<div style=margin-left:10px>
-   <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status - Bumble Auto Swipe</title>
+    <style>
+        .message-container {
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        
+        .message-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .message-title {
+            color: #FF5864;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .message-content {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .success-icon {
+            color: #28a745;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .error-icon {
+            color: #dc3545;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container message-container">
         {%- for message in get_flashed_messages() %}
-         <h1>{{ message }}</h1>
+        <div class="message-card">
+            {% if 'error' in message.lower() %}
+                <i class="fas fa-exclamation-circle error-icon"></i>
+            {% else %}
+                <i class="fas fa-check-circle success-icon"></i>
+            {% endif %}
+            <h1 class="message-title">{{ message }}</h1>
+        </div>
         {%- endfor %}
-   </body>
-</div>
+    </div>
+</body>
 </html>
 

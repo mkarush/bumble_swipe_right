@@ -8,16 +8,32 @@ This app will swipe right for user until reach end of likes for day:
 <p> pip install --upgrade pip</p>
 <p>pip install -r requirements.txt</p>
 
+5. Configure Chrome WebDriver:
+   - Open `parameters/bumble.py`
+   - Set your Chrome WebDriver path:
+   ```python
+   self.driver = webdriver.Chrome("path/to/your/chromedriver")
+   ```
 
-<h1>INFO</h1>
-<p>This will start a web development app where user can login using facebook or cellphone on bumble. </p>
+## How to Use
 
-<h1>USAGE</h1><br>
+1. Run the application:
+```bash
+python3 swipe_right.py
+```
 
-1. python3 swipe_right.py 
-2. it will start a PROGRAM
-3. click http://127.0.0.1:5000/ to login on web development app.
+2. Open your browser and go to:
+```
+http://127.0.0.1:5000
+```
 
+3. Log in to Bumble using:
+   - Facebook account, or
+   - Phone number
 
-<h1>ISSUES</h1>
-1. Driver not found, make sure chrome version compatible with driver version
+## Troubleshooting
+
+If you see "Driver not found" error:
+- Check if Chrome WebDriver is installed
+- Make sure Chrome WebDriver version matches your Chrome browser version
+- Verify the path in `parameters/bumble.py` is correct

