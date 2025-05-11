@@ -8,13 +8,6 @@ This app will swipe right for user until reach end of likes for day:
 <p> pip install --upgrade pip</p>
 <p>pip install -r requirements.txt</p>
 
-5. Configure Chrome WebDriver:
-   - Open `parameters/bumble.py`
-   - Set your Chrome WebDriver path:
-   ```python
-   self.driver = webdriver.Chrome("path/to/your/chromedriver")
-   ```
-
 ## How to Use
 
 1. Run the application:
