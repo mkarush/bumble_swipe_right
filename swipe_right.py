@@ -53,7 +53,7 @@ def internal_server_error(e):
 
 if __name__ == '__main__':
     # Use environment variable for port, default to 5000
-    port = int(os.getenv('PORT', 5002))
+    port = int(os.getenv('PORT', 5000))
     # Use environment variable for debug mode, default to False in production
     debug = os.getenv('FLASK_ENV') == 'development'
     app.run(host='0.0.0.0', port=port, debug=debug)
