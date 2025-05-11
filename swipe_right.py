@@ -31,7 +31,7 @@ def bumble():
             
         if login_method == "fb":
             return render_template('fb.html')
-        elif login_method == "numbler":
+        elif login_method == "number":
             return render_template('bumble.html')
         else:
             flash("Invalid login method selected", "error")
